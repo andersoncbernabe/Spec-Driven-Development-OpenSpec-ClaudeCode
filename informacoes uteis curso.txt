@@ -1,0 +1,143 @@
+SPEC.MD 
+O spec.md não está preocupado com implementação.
+Ele define comportamento, regras, expectativas e valor de negócio.
+
+PLAN.MD
+Arquitetura, estratégia de segurança, estrutura técnica,
+serviços, DTOs, endpoints, middleware, dependências,configuração, decisões técnicas.
+O plan, ele não descreve regras de negócio.
+Ele descreve as decisões técnicas que vão guiar a implementação.
+
+constitution.md
+o constitution.md funciona como uma constituição do projeto.
+São regras que todos os agentes precisam seguir.
+sem o constitution, cada agente vai improvisar.
+Com o constitution, todos vão seguir o mesmo padrão.
+
+TASKS.md
+Então, agora nós vamos quebrar tudo em pequenas tarefas.
+E eu vou definir aqui essas instruções para este arquivo.
+
+
+Então agora Cloud Code possui contexto de negócio(SPEC.MD),
+arquitetura(PLAN.MD), regras globais ( constitution.md) e tarefas organizadas(TASKS.md).
+
+Prompt 1 para execução:
+Leia os arquivos da pasta specs/jwt-authentication:
+SPEC.MD, PLAN.MD,constitution.md e TASKS.md  e imprimente apenas a tarefa T1.
+
+Prompt 2:
+Agora imprimente a T2 considerando o código já existente.
+Sem modificar outras tarefas, sem necessidade.
+
+
+Prompt3 :
+Implemente a T3 seguindo as instruções do arquivo
+spec.md e plan.md e constitution.md
+
+Prompt4 :
+Implemente agora a T4 considerando o código existente e seguindo as especificações.
+
+Prompt5 :
+Implemente agora a T5
+
+Então, o spec, ele define o que precisa existir.
+1 - Criar pasta "spec" em raiz de projeto
+2 - Criar pasta com nome de recurso exemplo, spec\jwt-authentication
+3 - criar arquivo  dentro de pasta spec\jwt-authentication\SPEC.md
+
+-----------------Ferramentas para implementar SDD
+O OpenSpec( aberto) é um framework que aplica o conceito
+de Spec Driven Development,
+utilizando agentes de inteligência artificial
+para planejar, refinar e implementar o software.
+Outras como o SpecKit do GitHub e o Kiro, da AWS.
+
+https://openspec.dev/
+
+para instalar:
+npm install -g @fission-ai/openspec@latest  - instala globalmente, apos isso ir na pasta do projeto e executar:
+
+
+
+openspec init  - com isso as past do openspec vão ser criadas:
+
+.claude/commands/opsx
+.claude/skills
+openspec/changes
+openspec/specs
+openspec/config.yaml
+
+-----------------------------------------------------------------------------------------------
+O FLUXO PRINCIPAL DO OPENSPEC
+
+O fluxo principal do OpenSpec é composto por 3 etapas, executadas diretamente no terminal da sua ferramenta de IA.
+
+
+----------
+💻 TERMINAL — FERRAMENTA DE IA
+1. /opsx:propose
+Planeja a funcionalidade.
+
+Gera:
+
+proposal.md
+design.md
+tasks.md
+specs (Delta Specs)
+
+--
+2. /opsx:apply
+Implementa o código baseado nas especificações e executa as tarefas definidas.
+
+--
+3. /opsx:archive
+Encerra a mudança. Move os artefatos para o histórico e consolida as specs na fonte da verdade do projeto.
+
+
+------
+🟢 Etapa 1: Planejamento
+Planeja a funcionalidade e gera os artefatos iniciais:
+
+proposal.md
+design.md
+tasks.md
+specs (Delta Specs)
+
+🔵 Etapa 2: Implementação
+A IA implementa o código seguindo as tarefas do plano.
+O tasks.md é atualizado conforme o progresso.
+
+🟣 Etapa 3: Arquivamento
+Encerra a mudança e move os artefatos para o histórico.
+As specs consolidadas passam a fazer parte da fonte da verdade.
+
+----
+/opsx:apply — Implementa as tarefas de uma mudança do OpenSpec (Experimental) (projeto)
+/opsx:archive — Arquiva uma mudança concluída no fluxo experimental (projeto)
+/opsx:explore — Entra no modo de exploração — analisa ideias, investiga problemas e esclarece requisitos (projeto).
+   * Indicado para projetos já existentes
+	e projetos legados, porque ele permite analisar o ambiente atual,
+	entender a estrutura da solução, identificar tecnologias instaladas,
+	dependências, configurações e gerar um entendimento inicial
+	do contexto do projeto.
+
+/opsx:propose — Propõe uma nova mudança — cria a mudança e gera todos os artefatos em uma única etapa (projeto)
+/opsx:sync — Sincroniza as especificações incrementais (Delta Specs) de uma mudança com as especificações principais (projeto)
+------------------------------------ApiClientes
+Prompt
+> /opsx:explore Quero criar uma uma API REST de clientes com .NET 10, EF Core e SQLite. Preciso das operações CRUD
+basicas: criar, listar, obter por id , atualizar e deletar. 0 Cliente tem Id(int), Nome(string, obrigatorio)
+Email (string, única), DataCadastro(DateTime). Regras: Email deve ser válido (contém @) , não pode haver dois
+clientes com mesmo email.A API deve retornar 404 quando o cliente não existir.A API deve usar a abordagem das
+Minimal APIs.O projeto criado deve ter um arquivo de solução (.slnx)
+
+
+Algumas questão ficaram abertas sobres as definições, minha reposta foi:
+Data de cadastro deve ser preenchido automaticamente pelo sistema. NO caso do e-mail a api valida, em caso de email duplicado retornar 409. 
+3. "Email válido (contém @)" — literal ou padrão? EmailAddress
+4. Migrations ou EnsureCreated()? Migrations
+
+Ultimo prompt antes do claude implementar:
+Atualize o proposal.md, design.md e tasks.md para usar Seed Database com HasData e criar 3 clientes fixos automaticamente e para que ao iniciar a aplicação abrir automaticamente o navegador exibindos o Swagger UI com os endpoints da API.
+
