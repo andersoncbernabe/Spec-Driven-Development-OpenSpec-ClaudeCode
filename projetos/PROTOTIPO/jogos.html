@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogos — PortalCopa26</title>
+  <meta name="description" content="Todos os 104 jogos da Copa do Mundo FIFA 2026, com filtros por fase, grupo, data, seleção e cidade-sede.">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div data-cabecalho></div>
+
+  <main id="conteudo" class="container secao">
+    <div class="secao__cabecalho">
+      <h1>Jogos</h1>
+      <a class="link-secao" href="grupos.html">Ver grupos →</a>
+    </div>
+    <p class="secao__descricao" data-descricao></p>
+
+    <!-- Navegação por fase (RF-02) -->
+    <h2 class="visualmente-oculto">Navegação por fase</h2>
+    <div class="abas" data-abas-fase role="group" aria-label="Filtrar por fase"></div>
+
+    <!-- Filtros combinados (RF-02) -->
+    <form class="filtros" data-filtros aria-label="Filtros de jogos">
+      <div class="campo">
+        <label for="f-grupo">Grupo</label>
+        <select id="f-grupo" name="grupo"></select>
+      </div>
+      <div class="campo">
+        <label for="f-selecao">Seleção</label>
+        <select id="f-selecao" name="selecao"></select>
+      </div>
+      <div class="campo">
+        <label for="f-cidade">Sede / cidade</label>
+        <select id="f-cidade" name="cidade"></select>
+      </div>
+      <div class="campo">
+        <label for="f-data">Data</label>
+        <select id="f-data" name="data"></select>
+      </div>
+      <div class="filtros__acoes">
+        <button class="botao botao--pequeno" type="reset" data-limpar>Limpar filtros</button>
+      </div>
+    </form>
+
+    <p class="resumo-filtro" data-resumo role="status" aria-live="polite"></p>
+
+    <div data-lista-jogos></div>
+
+    <nav class="paginacao" data-paginacao aria-label="Paginação dos jogos"></nav>
+  </main>
+
+  <div data-rodape></div>
+
+  <script src="data/copa2026.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="assets/js/pagina-jogos.js"></script>
+</body>
+</html>

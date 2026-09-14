@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grupos e classificação — PortalCopa26</title>
+  <meta name="description" content="Os 12 grupos da Copa do Mundo FIFA 2026 com classificação completa, critérios de desempate da FIFA e distribuição dos potes.">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div data-cabecalho></div>
+
+  <main id="conteudo" class="container secao">
+    <div class="secao__cabecalho">
+      <h1>Grupos e classificação</h1>
+      <a class="link-secao" href="simulador.html">Simular resultados →</a>
+    </div>
+    <p class="secao__descricao" data-descricao></p>
+
+    <div class="aviso" data-origem></div>
+
+    <div class="legenda" aria-hidden="true">
+      <span><i style="background:#00d18f"></i> Classificado (1º e 2º)</span>
+      <span><i style="background:#ffc531"></i> 3º colocado (disputa uma das 8 vagas)</span>
+      <span><i style="background:#ff5c5c"></i> Eliminado</span>
+      <span><i style="background:#38507e"></i> Indefinido</span>
+      <span><i style="background:transparent;color:#ffc531">★</i> Cabeça de chave (Pote 1)</span>
+    </div>
+
+    <h2 class="visualmente-oculto">Classificação por grupo</h2>
+    <div class="grade grade--3" data-grupos style="margin-top:1.2rem"></div>
+
+    <section class="secao" aria-labelledby="titulo-terceiros">
+      <div class="secao__cabecalho"><h2 id="titulo-terceiros">Melhores terceiros colocados</h2></div>
+      <p class="secao__descricao" data-descricao-terceiros></p>
+      <div class="cartao"><div class="tabela-wrap" data-terceiros></div></div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-potes">
+      <div class="secao__cabecalho"><h2 id="titulo-potes">Potes do sorteio</h2></div>
+      <p class="secao__descricao" data-descricao-potes></p>
+      <div class="grade grade--4" data-potes></div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-criterios">
+      <div class="secao__cabecalho"><h2 id="titulo-criterios">Regras aplicadas</h2></div>
+      <div class="grade grade--2" data-regras></div>
+    </section>
+  </main>
+
+  <div data-rodape></div>
+
+  <script src="data/copa2026.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="assets/js/classificacao.js"></script>
+  <script src="assets/js/boloes.js"></script>
+  <script src="assets/js/pagina-grupos.js"></script>
+</body>
+</html>

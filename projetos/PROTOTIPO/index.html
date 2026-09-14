@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PortalCopa26 — Copa do Mundo FIFA 2026</title>
+  <meta name="description" content="Portal da Copa do Mundo FIFA 2026: jogos, grupos, classificação, seleções, elencos, ranking FIFA e simulador.">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div data-cabecalho></div>
+
+  <main id="conteudo">
+    <!-- Hero (PRD 5): logo, nome do portal, países-sede -->
+    <section class="hero container" aria-labelledby="titulo-hero">
+      <img class="hero__logo" data-logo alt="Logo da Copa do Mundo FIFA 2026">
+      <p class="hero__lema" data-lema></p>
+      <h1 class="hero__titulo" id="titulo-hero">PortalCopa26</h1>
+      <p class="hero__sub" data-subtitulo></p>
+
+      <h2 class="visualmente-oculto">Países-sede</h2>
+      <div class="sedes" data-sedes></div>
+
+      <h2 class="visualmente-oculto">Contagem regressiva para o primeiro jogo</h2>
+      <div class="contagem" data-contagem role="timer" aria-live="off"></div>
+      <p class="contagem__mensagem" data-contagem-mensagem></p>
+
+      <p>
+        <a class="botao botao--primario" href="simulador.html">⚽ Abrir o Simulador</a>
+        <a class="botao" href="jogos.html">Ver todos os jogos</a>
+      </p>
+    </section>
+
+    <!-- Números da Copa -->
+    <section class="secao container" aria-labelledby="titulo-numeros">
+      <h2 class="visualmente-oculto" id="titulo-numeros">Números da Copa</h2>
+      <div class="grade grade--4" data-estatisticas></div>
+    </section>
+
+    <!-- Acesso rápido -->
+    <section class="secao container" aria-labelledby="titulo-atalhos">
+      <div class="secao__cabecalho"><h2 id="titulo-atalhos">Acesso rápido</h2></div>
+      <div class="grade grade--4" data-atalhos></div>
+    </section>
+
+    <!-- Próximos jogos (PRD 5) -->
+    <section class="secao container" aria-labelledby="titulo-proximos">
+      <div class="secao__cabecalho">
+        <h2 id="titulo-proximos">Próximos jogos</h2>
+        <a class="link-secao" href="jogos.html">Ver todos os jogos →</a>
+      </div>
+      <div class="grade grade--3" data-proximos-jogos></div>
+    </section>
+
+    <!-- Países-sede em detalhe -->
+    <section class="secao container" aria-labelledby="titulo-sedes">
+      <div class="secao__cabecalho">
+        <h2 id="titulo-sedes">Países-sede e cidades</h2>
+      </div>
+      <div class="grade grade--3" data-paises-sede></div>
+    </section>
+
+    <!-- Ranking FIFA (PRD 5) -->
+    <section class="secao container" aria-labelledby="titulo-ranking">
+      <div class="secao__cabecalho">
+        <h2 id="titulo-ranking">Ranking FIFA</h2>
+        <a class="link-secao" href="ranking.html">Ver ranking completo →</a>
+      </div>
+      <div class="cartao">
+        <div class="tabela-wrap" data-ranking-topo></div>
+      </div>
+    </section>
+
+    <!-- Chamada para o simulador (PRD 5) -->
+    <section class="secao container">
+      <div class="cartao cartao--destaque" style="text-align:center">
+        <h2>Monte o seu bolão</h2>
+        <p class="secao__descricao" style="margin:0 auto 1rem">
+          Informe os placares dos 72 jogos da fase de grupos, veja a classificação recalculada
+          com os critérios de desempate da FIFA e siga o chaveamento até a final.
+        </p>
+        <a class="botao botao--primario" href="simulador.html">Simular a Copa 2026</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-rodape></div>
+
+  <script src="data/copa2026.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="assets/js/classificacao.js"></script>
+  <script src="assets/js/pagina-home.js"></script>
+</body>
+</html>

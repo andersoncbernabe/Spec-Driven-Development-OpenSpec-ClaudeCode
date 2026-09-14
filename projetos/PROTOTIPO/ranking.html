@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ranking FIFA — PortalCopa26</title>
+  <meta name="description" content="Ranking FIFA com posição, seleção e pontuação, destacando as seleções que disputam a Copa do Mundo 2026.">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div data-cabecalho></div>
+
+  <main id="conteudo" class="container secao">
+    <div class="secao__cabecalho">
+      <h1>Ranking FIFA</h1>
+      <a class="link-secao" href="equipes.html">Ver equipes →</a>
+    </div>
+    <p class="secao__descricao" data-descricao></p>
+
+    <div class="grade grade--4" data-resumo-ranking style="margin-bottom:1.5rem"></div>
+
+    <form class="filtros" data-filtros aria-label="Filtros do ranking">
+      <div class="campo">
+        <label for="f-busca">Buscar seleção</label>
+        <input id="f-busca" name="busca" type="search" placeholder="Ex.: Brasil" autocomplete="off">
+      </div>
+      <div class="campo">
+        <label for="f-escopo">Exibir</label>
+        <select id="f-escopo" name="escopo">
+          <option value="todas">Todas as seleções do ranking</option>
+          <option value="copa">Apenas as seleções da Copa 2026</option>
+          <option value="fora">Apenas as seleções fora da Copa 2026</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="f-ordem">Ordenar por</label>
+        <select id="f-ordem" name="ordem">
+          <option value="posicao">Posição no ranking</option>
+          <option value="pontos-desc">Pontuação (maior primeiro)</option>
+          <option value="pontos-asc">Pontuação (menor primeiro)</option>
+          <option value="nome">Nome da seleção</option>
+        </select>
+      </div>
+      <div class="filtros__acoes">
+        <button class="botao botao--pequeno" type="reset" data-limpar>Limpar</button>
+      </div>
+    </form>
+
+    <p class="resumo-filtro" data-resumo role="status" aria-live="polite"></p>
+
+    <div class="cartao"><div class="tabela-wrap" data-tabela-ranking></div></div>
+    <nav class="paginacao" data-paginacao aria-label="Paginação do ranking"></nav>
+  </main>
+
+  <div data-rodape></div>
+
+  <script src="data/copa2026.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="assets/js/pagina-ranking.js"></script>
+</body>
+</html>

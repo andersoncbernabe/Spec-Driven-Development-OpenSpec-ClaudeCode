@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador e bolão — PortalCopa26</title>
+  <meta name="description" content="Simule os placares da Copa do Mundo FIFA 2026, recalcule a classificação dos grupos e monte o chaveamento até a final.">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div data-cabecalho></div>
+
+  <main id="conteudo" class="container secao">
+    <div class="secao__cabecalho">
+      <h1>Simulador</h1>
+      <a class="link-secao" href="grupos.html">Ver grupos →</a>
+    </div>
+    <p class="secao__descricao">
+      Informe os placares, veja a pontuação, o saldo de gols e a classificação dos grupos serem
+      recalculados na hora e siga o chaveamento do mata-mata até a final.
+    </p>
+
+    <!-- Gestão de bolões (RF-06) -->
+    <section class="painel" aria-labelledby="titulo-boloes">
+      <h2 id="titulo-boloes" style="font-size:1.05rem">Meus bolões</h2>
+      <div class="painel__linha">
+        <div class="campo">
+          <label for="f-bolao">Bolão ativo</label>
+          <select id="f-bolao"></select>
+        </div>
+        <div class="campo">
+          <label for="f-nome-bolao">Nome do bolão</label>
+          <input id="f-nome-bolao" type="text" maxlength="60" placeholder="Ex.: Meu palpite pessimista">
+        </div>
+        <div class="filtros__acoes" style="flex-wrap:wrap;gap:.4rem">
+          <button class="botao botao--pequeno" type="button" data-acao="renomear">Renomear</button>
+          <button class="botao botao--pequeno" type="button" data-acao="novo">+ Novo</button>
+          <button class="botao botao--pequeno" type="button" data-acao="duplicar">Duplicar</button>
+          <button class="botao botao--pequeno" type="button" data-acao="sortear">Sortear placares</button>
+          <button class="botao botao--pequeno botao--perigo" type="button" data-acao="limpar">Limpar placares</button>
+          <button class="botao botao--pequeno botao--perigo" type="button" data-acao="excluir">Excluir bolão</button>
+        </div>
+      </div>
+      <p class="resumo-filtro" data-status-bolao role="status" aria-live="polite" style="margin:.8rem 0 0"></p>
+      <p class="resumo-filtro" data-persistencia style="margin:.2rem 0 0"></p>
+    </section>
+
+    <div class="abas" data-abas-etapa role="tablist" aria-label="Etapas do simulador"></div>
+
+    <!-- Etapa: fase de grupos -->
+    <section data-etapa="grupos" aria-labelledby="titulo-etapa-grupos">
+      <h2 id="titulo-etapa-grupos">Fase de grupos</h2>
+      <p class="secao__descricao">
+        72 jogos. A classificação é recalculada a cada placar informado, aplicando os critérios
+        de desempate da FIFA (RN-01).
+      </p>
+      <form class="filtros" data-filtros-grupos aria-label="Filtros da fase de grupos">
+        <div class="campo">
+          <label for="f-grupo-sim">Grupo</label>
+          <select id="f-grupo-sim"></select>
+        </div>
+        <div class="campo">
+          <label for="f-pendentes">Exibir</label>
+          <select id="f-pendentes">
+            <option value="">Todos os jogos</option>
+            <option value="pendentes">Somente sem placar</option>
+            <option value="preenchidos">Somente com placar</option>
+          </select>
+        </div>
+      </form>
+      <div class="grade grade--2">
+        <div>
+          <h3>Jogos</h3>
+          <div data-jogos-grupos></div>
+        </div>
+        <div>
+          <h3>Classificação</h3>
+          <div data-tabelas-grupos></div>
+        </div>
+      </div>
+      <section class="secao" aria-labelledby="titulo-terceiros-sim">
+        <h3 id="titulo-terceiros-sim">Melhores terceiros colocados</h3>
+        <p class="secao__descricao">
+          Os 8 melhores entre os 12 terceiros avançam (RN-02). Critérios: pontos, saldo de gols,
+          gols marcados, fair play e ranking FIFA.
+        </p>
+        <div class="cartao"><div class="tabela-wrap" data-terceiros-sim></div></div>
+      </section>
+    </section>
+
+    <!-- Etapa: mata-mata -->
+    <section data-etapa="mata-mata" aria-labelledby="titulo-etapa-mata" hidden>
+      <h2 id="titulo-etapa-mata">Mata-mata</h2>
+      <div class="aviso" data-aviso-mata></div>
+      <div class="abas" data-abas-fase-mata role="group" aria-label="Fases do mata-mata"></div>
+      <div data-jogos-mata></div>
+    </section>
+
+    <!-- Etapa: chaveamento -->
+    <section data-etapa="chaveamento" aria-labelledby="titulo-etapa-chave" hidden>
+      <h2 id="titulo-etapa-chave">Chaveamento</h2>
+      <p class="secao__descricao">
+        Da Segunda Fase até a final. O vencedor de cada confronto avança automaticamente.
+      </p>
+      <div data-podio style="margin-bottom:1.2rem"></div>
+      <div class="chave" data-chaveamento></div>
+      <section class="secao" aria-labelledby="titulo-caminho">
+        <h3 id="titulo-caminho">Caminho até a final</h3>
+        <div class="campo" style="max-width:320px;margin-bottom:1rem">
+          <label for="f-caminho">Seleção</label>
+          <select id="f-caminho"></select>
+        </div>
+        <div data-caminho></div>
+      </section>
+    </section>
+
+    <!-- Etapa: comparação -->
+    <section data-etapa="comparacao" aria-labelledby="titulo-etapa-comparacao" hidden>
+      <h2 id="titulo-etapa-comparacao">Comparar bolões</h2>
+      <p class="secao__descricao" data-descricao-comparacao></p>
+      <div class="campo" style="max-width:360px;margin-bottom:1rem">
+        <label for="f-referencia">Comparar o bolão ativo com</label>
+        <select id="f-referencia"></select>
+      </div>
+      <div class="grade grade--3" data-cartoes-boloes></div>
+      <div class="cartao" style="margin-top:1.2rem"><div class="tabela-wrap" data-tabela-comparacao></div></div>
+    </section>
+  </main>
+
+  <div data-rodape></div>
+
+  <script src="data/copa2026.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="assets/js/classificacao.js"></script>
+  <script src="assets/js/mata-mata.js"></script>
+  <script src="assets/js/boloes.js"></script>
+  <script src="assets/js/pagina-simulador.js"></script>
+</body>
+</html>

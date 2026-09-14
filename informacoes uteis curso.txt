@@ -1,3 +1,8 @@
+OBS.  O SDD não torna a IA deterministica, apenas reduz a variabilidade de resposta( a IA é probabilistica) 
+
+
+
+------
 SPEC.MD 
 O spec.md não está preocupado com implementação.
 Ele define comportamento, regras, expectativas e valor de negócio.
@@ -140,4 +145,175 @@ Data de cadastro deve ser preenchido automaticamente pelo sistema. NO caso do e-
 
 Ultimo prompt antes do claude implementar:
 Atualize o proposal.md, design.md e tasks.md para usar Seed Database com HasData e criar 3 clientes fixos automaticamente e para que ao iniciar a aplicação abrir automaticamente o navegador exibindos o Swagger UI com os endpoints da API.
+
+
+/opsx:archive - serve para finalizar e arquivar uma mudança que já foi implementada.
+
+
+
+--------------------------------------Projeto prototipo
+Prompt inicial:
+
+Leia integralmante:
+
+- ./docs/PRD.md
+- todos dos arquivos da pasta ./fontes
+
+O PRD descreve completamente o produto.
+A pasta ./fntes contém a fonte da verdade dos dados.
+
+Não faça nenhuma suposição que não possa ser deduzida desses arquivos.
+Após compreender o domínio, implemente integralmente o protótipo seguinte o PRD.
+
+
+--------------------------------------Projeto copa2026
+- Iniciamos o projeto com as pastas:
+  Copa2026 - "pasta projeto"
+  Copa2026\prd
+  Copa2026\prd\src
+  
+- Criamos o arquivos CLAUDE.MD 9 (Memoria permanente do projeto) com conteudo correto
+- Abrir cmd na pasta do projeto e iniciar o openspec com comando "openspec init" - com isso cria a pasta "openspec" com subpastas
+
+- /opsx:propose portal-copa2026 + prompt:
+
+---- inicio prompt
+Contexto.
+Já existe um protótipo HTML validado na pasta C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\PROTOTIPO
+e um arquivo CLAUDE.md na raiz do projeto contendo as decisões
+arquiteturais e os requisitos globais do projeto.
+
+Objetivo:
+Criar a fundação da aplicação utilizando Blazor Web App (.NET 10), EF Core e SQLite
+
+Escopo desta especificação:
+- Criar a solução PortalCopa26
+- Configurar Blazor Web App
+- Configurar EF Core
+- Configurar SQLite
+- Definir a estrutura inicial do projeto
+- Criar o DbContext da aplicação
+- Criar as entidades iniciais:
+	- Grupo
+	- Selecao
+	- Jogador
+	- Jogo
+	- RankingFifa
+	- Simulacao
+	- SimulacaoJogo
+- Configurar o SeedData popular
+- Configurar a injeção de dependência necessária
+- Preparar a aplicação para futuras funcionalidades
+
+Requisitos importantes:
+
+- A aplicação utilizará arquitetura simplificada em projeto único
+- O código deve permitir futura migração para arquitetura em camadas
+- O Ranking FIFA será exibido futuramente através de Chart.js usando JSInterop
+- As simulações deverão ser persistidas usando SQLite
+- Os dados iniciais da Copa serão carregados através de SeedData
+
+
+Fora do escopo desta especificação:
+
+- Implementação da Landing Page
+- Implementação da página de Jogos
+- Implementação da página dos Grupos
+- Implementação da página das Seleções
+- Implementação do Ranking FIFA
+- Implementação do Simulador
+- Integração com APIs externas
+- Área administrativa
+- Autenticação
+---- fim prompt
+
+- Novo prompt:
+Revise o CLAUDE.MD, proposal.md, design.md e tasks.md.
+Explique o que será criado e onde os arquivos serão gerados antes de executar o apply.
+
+-/opsx:apply
+
+
+-/opsx:archive   - para confirmar mudanças
+
+************Foi esquecido orientação sobre onde deve vir o dados, abaixo prompt de ajuste
+------inicio prompt ajuste
+## Dados Iniciais
+
+Os dados serão carregados através de Seed Data.
+
+Os dados oficiais do torneio estão definidos nos arquivos:
+
+- copa2026_cidades_sede_estadios.txt
+- copa2026_cabecas_chave.txt
+- copa2026_grupos.txt
+- copa2026_jogos_primeira_fase.txt
+- copa2026_regras_negocio.txt
+- copa2026_fases.txt
+
+Esses arquivos estão na pasta /fontes
+
+Ao implementar funcionalidades relacionadas ao torneio:
+
+- Não gerar dados fictícios
+- Não inventar confrontos
+- Não criar grupos não definidos
+- Utilizar exclusivamente os dados da pasta /fontes
+
+
+Dados previstos:
+
+- Seleções - 48
+- Grupos - 12 
+- Estádios - 16
+- Fases - 6
+- Jogadores
+- Jogos - 102
+- Ranking FIFA
+
+Fases do mundial:
+
+|Fase             | Times|Jogos|Datas             |
+|-----------------|------|-----|------------------|
+|Fase de Grupos   | 48   |72   |11 jun - 2 jul    |
+|Oitavas de Final | 32   |16   |4 jul - 9 jul     |
+|Quartas de Final | 16   |8    |11 jul - 13 jul   |
+|Semifinais       | 8    |4    |15 jul - 16 jul   |
+|3º Lugar         | 4    |1    |18 jul (Miami)    |
+|Final            | 2    |1    |19 jul (Nova York)|
+
+As bandeiras poderão ser obtidas através da API pública da FIFA.
+
+Exemplo:
+https://api.fifa.com/api/v3/picture/flags-sq-4/MEX
+
+O logo da Fifa poderá ser obtida da API da FIFA
+
+Exemplo:
+https://api.fifa.com/api/v3/picture/tournaments-sq-4/285023
+------fim prompt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

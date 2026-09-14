@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipes e elencos — PortalCopa26</title>
+  <meta name="description" content="As 48 seleções da Copa do Mundo FIFA 2026: bandeira, grupo, confederação, técnico, ranking FIFA e elenco completo.">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div data-cabecalho></div>
+
+  <main id="conteudo" class="container secao">
+    <div class="secao__cabecalho">
+      <h1>Equipes</h1>
+      <a class="link-secao" href="grupos.html">Ver grupos →</a>
+    </div>
+    <p class="secao__descricao" data-descricao></p>
+
+    <form class="filtros" data-filtros aria-label="Busca de seleções">
+      <div class="campo">
+        <label for="f-busca">Buscar seleção</label>
+        <input id="f-busca" name="busca" type="search" placeholder="Ex.: Brasil, Japão, Croácia" autocomplete="off">
+      </div>
+      <div class="campo">
+        <label for="f-grupo">Grupo</label>
+        <select id="f-grupo" name="grupo"></select>
+      </div>
+      <div class="campo">
+        <label for="f-confederacao">Confederação</label>
+        <select id="f-confederacao" name="confederacao"></select>
+      </div>
+      <div class="campo">
+        <label for="f-selecao-rapida">Ir para</label>
+        <select id="f-selecao-rapida" name="selecaoRapida"></select>
+      </div>
+      <div class="filtros__acoes">
+        <button class="botao botao--pequeno" type="reset" data-limpar>Limpar</button>
+      </div>
+    </form>
+
+    <p class="resumo-filtro" data-resumo role="status" aria-live="polite"></p>
+
+    <h2 class="visualmente-oculto">Lista de seleções</h2>
+    <div class="grade grade--auto" data-lista-equipes></div>
+
+    <section class="secao" data-detalhe-secao aria-labelledby="titulo-detalhe" tabindex="-1">
+      <h2 class="visualmente-oculto" id="titulo-detalhe">Detalhe da seleção</h2>
+      <div data-detalhe></div>
+    </section>
+  </main>
+
+  <div data-rodape></div>
+
+  <script src="data/copa2026.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="assets/js/pagina-equipes.js"></script>
+</body>
+</html>

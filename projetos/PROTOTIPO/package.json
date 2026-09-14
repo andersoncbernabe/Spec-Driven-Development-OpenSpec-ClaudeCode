@@ -1,0 +1,15 @@
+{
+  "name": "portalcopa26-prototipo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Protótipo HTML/CSS/JavaScript do PortalCopa26 (PRD - Copa do Mundo FIFA 2026)",
+  "scripts": {
+    "seed": "node tools/build-data.js",
+    "test": "node tools/testar-regras.js",
+    "verificar": "node tools/build-data.js && node tools/testar-regras.js",
+    "start": "npx --yes http-server . -p 8080 -c-1 -o"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
