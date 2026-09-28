@@ -173,7 +173,9 @@ Após compreender o domínio, implemente integralmente o protótipo seguinte o P
   Copa2026\prd\src
   
 - Criamos o arquivos CLAUDE.MD 9 (Memoria permanente do projeto) com conteudo correto
-- Abrir cmd na pasta do projeto e iniciar o openspec com comando "openspec init" - com isso cria a pasta "openspec" com subpastas
+- Abrir cmd na pasta "Copa2026\prd" do projeto e iniciar o openspec com comando "openspec init" - com isso cria a pasta "openspec" com subpastas
+
+- abrir o claude na pasta "Copa2026\prd"
 
 - /opsx:propose portal-copa2026 + prompt:
 

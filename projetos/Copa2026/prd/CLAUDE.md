@@ -36,56 +36,72 @@ O código deve ser organizado de forma que permita futura migração para uma ar
 
 ## Escopo
 
-### Landing Page
+### Capacidades Principais
 
-Página inicial contendo:
+- Landing Page
+- Jogos
+- Grupos
+- Seleções
+- Ranking FIFA
+- Simulador
 
-- Hero Section
-- Países-sede
-- Próximos jogos
-- Ranking FIFA : Grafico de barras com Chart.js
-- Chamada para o simulador
+---
 
-### Jogos
+## Organização Funcional
 
-- Listagem de jogos 
-- Ordenação por data
-- Informações do grupo
-- Informaçções do estádio
+Cada capacidade deverá possuir:
 
-## Grupos
+- Componentes próprios
+- Serviços próprios
+- Especificações OpenSpec próprias
 
-- Exibição dos grupos
-- Classificação
-- Estatísticas
+Estrutura base:
 
+```text
+Components/Pages/LandingPage
+Components/Pages/Jogos
+Components/Pages/Grupos
+Components/Pages/Selecoes
+Components/Pages/Ranking
+Components/Pages/Simulador
+```
 
-## Seleções
+---
 
-- Informações das seleções
-- Elencos
-- Estatísticas dos jogadores : nome, posição, idade, gols marcados, participação em copas
+## Serviços
 
-### Ranking FIFA
+Não acessar DbContext diretamente em páginas ou componentes Razor.
 
-- Exibição do ranking das seleções
+Todo acesso aos dados deve ocorrer através de serviços específicos.
 
-### Simulasdor
+Exemplos:
 
-- Simulação de resultados
-- Atualização da classificação
-- Simulação de fase de grupos
-- Persistir a simulação
+- LandingPageService
+- JogosService
+- GruposService
+- RankingService
+- SimuladorService
+
+---
+
+## Interface
+
+Utilizar Bootstrap 5 como base visual.
+
+Priorizar reutilização dos componentes Bootstrap antes da criação de componentes customizados.
+
+Evitar frameworks CSS adicionais sem necessidade.
+
+---
 
 ## Visualizações e Gráficos
 
-A Landing Page deverá exibir um gráfico de barras com Ranking FIFA.
+A Landing Page deverá exibir gráficos utilizando:
 
-- Utilizar Chart.js para renderização dos gráficos
-- Integrar o Chart.js através de JSInterop
-- O gráfico deverá exibir sas principais seleções e sua pontuação do ranking FIFA
-- O componente deve ser reutilizável para futuras visualizações estatíticas
+- Chart.js
+- JSInterop
 
+Os componentes de gráficos devem ser reutilizáveis para futuras visualizações estatísticas.
 
 ---
 
@@ -100,6 +116,21 @@ Além dos dados oficiais da Copa, o banco deverá armazenar:
 - Classificações geradas a partir das simulações
 
 As simulações devem permanecer disponíveis mesmo após o encerramento da aplicação.
+
+---
+
+## Referências
+
+Utilizar sempre caminhos relativos.
+
+Exemplos:
+
+```text
+./fontes
+../prototipo
+```
+
+Evitar caminhos absolutos.
 
 ---
 
@@ -130,32 +161,125 @@ Não fazem parte da primeira versão:
 
 ---
 
-
-## Dados Iniciais
+## Dados Oficiais
 
 Os dados serão carregados através de Seed Data.
 
-Dados previstos:
+Os dados oficiais do torneio estão definidos nos arquivos da pasta:
 
-- Seleções
-- Grupos
-- Jogadores
-- Jogos
+```text
+./fontes
+```
+
+Ao implementar funcionalidades relacionadas ao torneio:
+
+- Não gerar dados fictícios
+- Não inventar confrontos
+- Não criar grupos não definidos
+- Não arbitrar posições de ranking ausentes
+- Utilizar exclusivamente os dados da pasta ./fontes
+
+### Carga Inicial
+
+Os dados oficiais serão carregados no banco através de Seed Data, executado na inicialização da aplicação.
+
+A carga deve ser idempotente: reexecutar o seed não duplica registros oficiais nem sobrescreve simulações do usuário.
+
+### Arquivos Oficiais
+
+Dados base:
+
+- copa2026_cidades_sede_estadios.txt
+- copa2026_estadios.txt
+- copa2026_cabecas-chave.txt
+- copa2026_grupos.txt
+- copa2026_pais_tecnicos.txt
+- copa2026_ranking_fifa.txt
+- copa2026_selecoes_jogadores.txt
+- selecoes_jogadores_convocados.txt
+
+Jogos por fase:
+
+- copa2026_jogos_primeira_fase.txt
+- copa2026_Jogos_Segunda_fase.txt
+- copa2026_jogos_oitavas.txt
+- copa2026_jogos_quartas.txt
+- copa2026_jogos_semifinal.txt
+- copa2026_jogo_terceiro_lugar.txt
+- copa2026_jogo_final.txt
+
+Fases e regras:
+
+- copa2026_fases.txt
+- copa2026_regras_negocio.txt
+- Copa2026_Regra_Terceiros_Colocados.txt
+
+### Volumes Oficiais
+
+- 48 seleções
+- 12 grupos (A a L), com 4 seleções cada
+- 16 cidades-sede e 16 estádios
+- 7 fases
+- 104 jogos no total, sendo 72 na fase de grupos
+- Jogadores convocados por seleção
 - Ranking FIFA
 
-As bandeiras das seleções poderão utilizar o padrão da API pública da FIFA.
+### Fases do Torneio
 
+| Fase             | Times | Jogos | Datas                          |
+|------------------|-------|-------|--------------------------------|
+| Fase de Grupos   | 48    | 72    | 11 jun – 2 jul                 |
+| Segunda Fase     | 32    | 16    | 28 jun – 3 jul                 |
+| Oitavas de Final | 16    | 8     | 4 jul – 9 jul                  |
+| Quartas de Final | 8     | 4     | 11 jul – 13 jul                |
+| Semifinais       | 4     | 2     | 15 jul – 16 jul                |
+| 3º Lugar         | 2     | 1     | 18 jul (Miami)                 |
+| Final            | 2     | 1     | 19 jul (Nova York/Nova Jersey) |
 
-## Estrutura Física
+Os jogos a partir das oitavas de final não têm seleções definidas nas fontes: cada lado expõe apenas o rótulo da vaga a ser preenchida (por exemplo, `Venc. Segundafase 1`). O sistema não deve atribuir seleções a esses jogos por conta própria.
 
-Todo o código-fonte d aplicação deverá ser criado dentro da pasta src/ 
-localizada na raiz do workspace atual
+### Imagens
 
-Estrutura desejada:
-src/
-|__PortalCopa26
-   |_____PortalCopa26.slnx
-   |_____PortalCopa26/
+Bandeiras e logotipos poderão ser obtidos através das APIs públicas de imagem da FIFA.
 
+Bandeira, pelo código FIFA da seleção:
 
-Utilizar o formato de solução com extensão .slnx para o arquivo da solução
+```text
+https://api.fifa.com/api/v3/picture/flags-sq-4/MEX
+```
+
+Logotipo do torneio:
+
+```text
+https://api.fifa.com/api/v3/picture/tournaments-sq-4/285023
+```
+
+São URLs de imagem estática consumidas diretamente pelo navegador. Não constituem integração com API externa de dados, que permanece fora do escopo.
+
+---
+
+## OpenSpec
+
+As mudanças devem:
+
+- Manter escopo reduzido por change
+- Cada change deve possuir um objetivo funcional claro
+- Permitir múltiplas tarefas dentro da mesma change
+- Evitar agrupar capacidades não relacionadas em uma única change
+- Priorizar componentes reutilizáveis
+- Evitar alterações não relacionadas ao objetivo da change
+- Seguir as diretrizes definidas neste documento
+- Utilizar as informações da pasta ./fontes como fonte oficial dos dados do torneio
+
+## Documentação Complementar
+
+Antes de implementar funcionalidades relacionadas ao domínio da Copa, consultar:
+
+- ./docs/RegrasCopa2026.md
+- ./docs/EstruturaDados.md
+
+Antes de utilizar dados do torneio, consultar os arquivos da pasta:
+
+- ./fontes
+
+Os arquivos da pasta fontes são a fonte oficial dos dados da Copa do Mundo 2026.
