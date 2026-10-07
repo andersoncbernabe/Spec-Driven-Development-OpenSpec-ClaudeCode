@@ -1,5 +1,23 @@
-﻿<PageTitle>Home</PageTitle>
+﻿@page "/"
+@using PortalCopa26.Components.Pages.LandingPage
+@inject LandingPageService LandingPageService
 
-<h1>Hello, world!</h1>
+<PageTitle>PortalCopa26 — Copa do Mundo FIFA 2026</PageTitle>
 
-Welcome to your new app.
+<HeroSection />
+
+<div class="page">
+    <EstatisticasCopa />
+    <ProximosJogos Quantidade="6" />
+    <RankingFifaChart Dados="_rankingDados" />
+    <SimuladorPainel />
+</div>
+
+@code {
+    private List<RankingItemDto> _rankingDados = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _rankingDados = await LandingPageService.ObterTopRankingAsync(10);
+    }
+}
