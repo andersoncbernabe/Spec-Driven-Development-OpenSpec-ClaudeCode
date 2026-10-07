@@ -1,0 +1,22 @@
+@page "/"
+@inject LandingPageService LandingPageService
+
+<PageTitle>PortalCopa26 — Copa do Mundo FIFA 2026</PageTitle>
+
+<HeroSection />
+
+<div class="page">
+    <EstatisticasCopa />
+    <ProximosJogos Quantidade="6" />
+    <RankingFifaChart Dados="_rankingDados" />
+    <SimuladorPainel />
+</div>
+
+@code {
+    private List<RankingItemDto> _rankingDados = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _rankingDados = await LandingPageService.ObterTopRankingAsync(10);
+    }
+}

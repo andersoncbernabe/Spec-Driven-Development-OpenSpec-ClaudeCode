@@ -24,7 +24,6 @@ C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\Portal
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\scopedcss\bundle\PortalCopa26.styles.css
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\scopedcss\projectbundle\PortalCopa26.bundle.scp.css
-C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\5rzp4lb8wz-{0}-khy4lop6wu-khy4lop6wu.gz
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\6ie76i0fmb-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\1c8oxzaqlj-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\jha3h46bja-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -72,8 +71,6 @@ C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\Portal
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\j9s8qrah4x-{0}-abdmv1u4y3-abdmv1u4y3.gz
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\ahfxet8n2s-{0}-wyu7y4jcvb-wyu7y4jcvb.gz
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\9htjdjy8lt-{0}-wfr2hj6447-wfr2hj6447.gz
-C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\err017974h-{0}-c67dgho3xz-c67dgho3xz.gz
-C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\biwggs05zq-{0}-c67dgho3xz-c67dgho3xz.gz
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\staticwebassets.build.json
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\staticwebassets.development.json
@@ -218,3 +215,9 @@ C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\Portal
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\bin\Debug\net10.0\fontes\selecoes_jogadores_convocados.txt
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\bin\Debug\net10.0\fontes\copa2026_regras_negocio.txt
 C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\bin\Debug\net10.0\fontes\Copa2026_Regra_Terceiros_Colocados.txt
+C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\5rzp4lb8wz-{0}-oplhx38jn4-oplhx38jn4.gz
+C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\tm2comq0ze-{0}-k2cqq8wur3-k2cqq8wur3.gz
+C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\cjmd9mn4lp-{0}-8jxcsqpcge-8jxcsqpcge.gz
+C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\err017974h-{0}-lhgq138g5g-lhgq138g5g.gz
+C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\compressed\biwggs05zq-{0}-lhgq138g5g-lhgq138g5g.gz
+C:\repo\Spec-Driven-Development-OpenSpec-ClaudeCode\projetos\Copa2026\PRD\PortalCopa26\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

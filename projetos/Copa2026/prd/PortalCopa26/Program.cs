@@ -18,6 +18,7 @@ builder.Services.AddScoped<JogosService>();
 builder.Services.AddScoped<GruposService>();
 builder.Services.AddScoped<SelecaoService>();
 builder.Services.AddScoped<RankingService>();
+builder.Services.AddScoped<LandingPageService>();
 builder.Services.AddScoped<DataSeeder>();
 
 var app = builder.Build();

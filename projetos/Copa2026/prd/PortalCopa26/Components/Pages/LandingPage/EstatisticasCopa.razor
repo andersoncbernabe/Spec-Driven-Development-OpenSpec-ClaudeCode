@@ -1,0 +1,44 @@
+@inject LandingPageService LandingPageService
+
+@if (_resumo is not null)
+{
+    <div class="stat-strip">
+        <div class="stat-card">
+            <div class="stat-icon blue">⚽</div>
+            <div>
+                <div class="stat-val">@_resumo.Selecoes</div>
+                <div class="stat-lbl">Seleções</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon gold">🏆</div>
+            <div>
+                <div class="stat-val">@_resumo.Grupos</div>
+                <div class="stat-lbl">Grupos</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon green">📅</div>
+            <div>
+                <div class="stat-val">@_resumo.Jogos</div>
+                <div class="stat-lbl">Jogos</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon red">🏟️</div>
+            <div>
+                <div class="stat-val">@_resumo.Estadios</div>
+                <div class="stat-lbl">Estádios</div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private ResumoTorneio? _resumo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _resumo = await LandingPageService.ObterResumoAsync();
+    }
+}

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PortalCopa26")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a62f2368fec760c207c350df1709d9ba89fdea27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92f98e9fd1fbd84519a82b8f87c36c0ac12aca51")]
 [assembly: System.Reflection.AssemblyProductAttribute("PortalCopa26")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PortalCopa26")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

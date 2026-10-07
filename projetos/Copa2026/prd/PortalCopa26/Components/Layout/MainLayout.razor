@@ -1,20 +1,21 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<NavMenu />
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+@Body
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">Portal<span class="accent">Copa26</span></div>
+        <p class="footer-txt">Copa do Mundo FIFA 2026 &middot; USA &middot; Canadá &middot; México</p>
+        <div class="footer-links">
+            <a href="/jogos">Jogos</a>
+            <a href="/grupos">Grupos</a>
+            <a href="/ranking">Ranking</a>
+            <a href="/simulador">Simulador</a>
         </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+    </div>
+</footer>
 
 <div id="blazor-error-ui" data-nosnippet>
     An unhandled error has occurred.

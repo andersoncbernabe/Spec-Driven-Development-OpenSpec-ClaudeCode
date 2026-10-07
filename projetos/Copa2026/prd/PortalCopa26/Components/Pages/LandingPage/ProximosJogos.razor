@@ -1,0 +1,77 @@
+@inject LandingPageService LandingPageService
+
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title">Jogos do Torneio</h2>
+        <a href="/jogos" class="btn btn-outline btn-sm">Ver todos</a>
+    </div>
+
+    @if (_jogos is null)
+    {
+        <p class="text-soft">Carregando jogos...</p>
+    }
+    else if (_jogos.Count == 0)
+    {
+        <p class="text-soft">Nenhum jogo encontrado.</p>
+    }
+    else
+    {
+        <div class="game-list">
+            @foreach (var jogo in _jogos)
+            {
+                <div class="game-card">
+                    <div class="team-side">
+                        @if (jogo.MandanteBandeiraUrl is not null)
+                        {
+                            <img class="flag-sm"
+                                 src="@jogo.MandanteBandeiraUrl"
+                                 alt="@jogo.MandanteNome"
+                                 onerror="this.classList.add('flag-err');this.removeAttribute('src')" />
+                        }
+                        <div>
+                            <div class="team-name">@(jogo.MandanteNome ?? jogo.RotuloMandante ?? "A definir")</div>
+                            @if (jogo.MandanteCodigo is not null)
+                            {
+                                <div class="team-code">@jogo.MandanteCodigo</div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="game-center">
+                        <div class="game-score">×</div>
+                        <div class="game-time">@jogo.DataHora.ToString("dd/MM HH:mm")</div>
+                        <div class="game-meta">@jogo.Cidade</div>
+                    </div>
+
+                    <div class="team-side away">
+                        @if (jogo.VisitanteBandeiraUrl is not null)
+                        {
+                            <img class="flag-sm"
+                                 src="@jogo.VisitanteBandeiraUrl"
+                                 alt="@jogo.VisitanteNome"
+                                 onerror="this.classList.add('flag-err');this.removeAttribute('src')" />
+                        }
+                        <div>
+                            <div class="team-name">@(jogo.VisitanteNome ?? jogo.RotuloVisitante ?? "A definir")</div>
+                            @if (jogo.VisitanteCodigo is not null)
+                            {
+                                <div class="team-code">@jogo.VisitanteCodigo</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public int Quantidade { get; set; } = 6;
+
+    private List<ProximoJogoDto>? _jogos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _jogos = await LandingPageService.ObterProximosJogosAsync(Quantidade);
+    }
+}

@@ -1,0 +1,86 @@
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title">Ranking FIFA — TOP 10</h2>
+        <a href="/ranking" class="btn btn-outline btn-sm">Ver completo</a>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <canvas id="@_canvasId" height="320"></canvas>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public IList<RankingItemDto> Dados { get; set; } = new List<RankingItemDto>();
+
+    private string _canvasId = string.Empty;
+    private IJSObjectReference? _module;
+
+    protected override void OnInitialized()
+    {
+        _canvasId = "chart-" + Guid.NewGuid().ToString("N");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || Dados.Count == 0) return;
+
+        _module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/charts.js");
+
+        var config = new
+        {
+            type = "bar",
+            data = new
+            {
+                labels = Dados.Select(d => d.NomeSelecao).ToArray(),
+                datasets = new[]
+                {
+                    new
+                    {
+                        label = "Pontuação FIFA",
+                        data  = Dados.Select(d => (double)d.Pontuacao).ToArray(),
+                        backgroundColor = "#f5a623",
+                        borderRadius = 4,
+                    }
+                }
+            },
+            options = new
+            {
+                indexAxis = "y",
+                responsive = true,
+                maintainAspectRatio = false,
+                plugins = new
+                {
+                    legend = new { display = false }
+                },
+                scales = new
+                {
+                    x = new
+                    {
+                        ticks = new { color = "#9ab5d8" },
+                        grid  = new { color = "rgba(46,68,112,0.5)" }
+                    },
+                    y = new
+                    {
+                        ticks = new { color = "#f0f6ff" },
+                        grid  = new { display = false }
+                    }
+                }
+            }
+        };
+
+        await _module.InvokeVoidAsync("renderChart", _canvasId, config);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_module is not null)
+        {
+            await _module.InvokeVoidAsync("destroyChart", _canvasId);
+            await _module.DisposeAsync();
+        }
+    }
+}
